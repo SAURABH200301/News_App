@@ -32,16 +32,20 @@ export default class News extends Component {
         document.title = `NewsMonkey: ${this.props.category[0].toUpperCase() + this.props.category.slice(1)}`
     }
     async updateNews() {
+        this.props.setProgress(10);
         let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=a7df729a314842e785fdac6dde42ffb8&page=${this.state.page}&pageSize=${this.props.pageSize}`;
         this.setState({ loading: true })
         let data = await fetch(url);
+        this.props.setProgress(30);
         let parsedData = await data.json();
+        this.props.setProgress(70);
         // console.log(parsedData)
         this.setState({
             article: parsedData.articles,
             totalResults: parsedData.totalResults,
             loading: false
         })
+        this.props.setProgress(100);
     }
     async componentDidMount() {
         // console.log("cdm")
@@ -90,7 +94,7 @@ export default class News extends Component {
                                 <div className="col-md-4 " key={element.url} >
                                     <NewsItem
 
-                                        title={element.title ? element.title.slice(0, 45) : ""}
+                                        title={element.title ? element.title : ""}
                                         imageUrl={element.urlToImage ? element.urlToImage : "https://static.toiimg.com/photo/msid-92982272.cms"}
                                         description={element.description ? element.description.slice(0, 88) : ""}
                                         newsUrl={element.url}
