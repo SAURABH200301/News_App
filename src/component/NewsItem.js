@@ -1,20 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 import 'animate.css'
 
-export default class NewsItem extends Component {
+const NewsItem =(props)=> {
 
-    render() {
-        let { title, description, imageUrl, newsUrl, publishedAt, author,sourceName } = this.props;
-        // const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-        // const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-        // const d=new Date(publishedAt);
-        // const date = d.getDate();
-        // const month = d.getMonth();
-        // const year = d.getFullYear();
-        // const day = d.getDay();
-        // const newDate =date+ '/'+months[month]+'/'+year+'   '+days[day]
-        // console.log(Date.parse(d))
-
+        let { title, description, imageUrl, newsUrl, publishedAt, author,sourceName } = props;
         return (
             <div className='my-3'>
                 <div className="card" >
@@ -32,5 +21,5 @@ export default class NewsItem extends Component {
                 </div>
             </div>
         )
-    }
 }
+export default NewsItem
