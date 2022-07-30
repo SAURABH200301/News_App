@@ -27,7 +27,7 @@ const News = (props) => {
         props.setProgress(100);
     }
     useEffect(() => {
-        document.title = ` ${props.category[0].toUpperCase() + props.category.slice(1)}: NewsMonkey`
+        document.title = ` ${props.category[0].toUpperCase() + props.category.slice(1)}: NewsApp`
         updateNews();
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
@@ -56,7 +56,7 @@ const News = (props) => {
     };
     return (
         <>
-            <h2 className='  text-center bg-dark text-white p-2 rounded' style={{marginTop:'50px'}}>{props.category ? props.category[0].toUpperCase() + props.category.slice(1) : 'NewsMonkey'}-Top Headlines</h2>
+            <h2 className='  text-center bg-dark text-white p-2 rounded' style={{marginTop:'50px'}}>{props.category ? props.category[0].toUpperCase() + props.category.slice(1) : 'NewsApp'}-Top Headlines</h2>
             {loading && <Spinner />}
             <InfiniteScroll
                 dataLength={article.length}
