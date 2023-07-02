@@ -15,7 +15,6 @@ const NewsItem =(props)=> {
                         <p className="card-text"><small className="text-muted">By {author ? author : 'Unknown'}</small></p>
                         <p className="card-text"><small className="text-muted"> On {new Date(publishedAt).toGMTString()}</small></p>
                         <a href={newsUrl} target="_blank" className="btn btn-sm btn-primary" rel="noreferrer" >Read More</a>
-                        {/* <div style={{float: 'right'}}>{newDate}</div> */}
 
                     </div>
                 </div>

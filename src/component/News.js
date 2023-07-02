@@ -20,7 +20,6 @@ const News = (props) => {
         props.setProgress(30);
         let parsedData = await data.json();
         props.setProgress(70);
-        // console.log(parsedData)
         setArticles(parsedData.articles)
         setLoading(false)
         setTotalResults(parsedData.totalResults)
@@ -32,24 +31,11 @@ const News = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-
-    // handlePrevClick = async () => {
-    //     // console.log("prev")
-    //     this.setState({ page: page - 1 })
-    //     this.updateNews();
-    // }
-    // handleNextClick = async () => {
-    //     // console.log("next")
-    //     this.setState({ page: page + 1 })
-    //     this.updateNews();
-    // }
     const fetchMoreData = async () => {
-        // this.setState({ page: page + 1 })
         let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=a7df729a314842e785fdac6dde42ffb8&page=${page+1}&pageSize=${props.pageSize}`;
         setPage(page+1)
         let data = await fetch(url);
         let parsedData = await data.json();
-        // console.log(parsedData)
         setArticles(article.concat(parsedData.articles));
         setTotalResults(parsedData.totalResults)
 
